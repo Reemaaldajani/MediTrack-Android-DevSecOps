@@ -46,3 +46,28 @@ jobs:
           name: MediTrack-Debug-APK
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+          
+      - name: Send ntfy notification
+        if: always()
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ -z "$NTFY_TOPIC" ]; then
+            echo "NTFY_TOPIC secret is empty"
+            exit 1
+          fi
+
+          if [ "$JOB_STATUS" = "success" ]; then
+            MESSAGE="SUCCESS: MediTrack Android CI completed successfully!"
+          else
+            MESSAGE="FAILED: MediTrack Android CI needs attention."
+          fi
+
+          curl --fail --silent --show-error \
+            --request POST \
+            --url "https://ntfy.sh/${NTFY_TOPIC}" \
+            --header "Title: MediTrack Android CI" \
+            --data "$MESSAGE"
+
