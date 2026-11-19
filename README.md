@@ -1,14 +1,14 @@
 # MediTrack – Android DevSecOps
 
-**An Android medical records application integrated with automated DevSecOps practices.**
+An Android medical records application built with integrated DevSecOps practices, automated CI/CD, and security controls.
 
-MediTrack helps users manage personal medical records, including medications and appointments. The project integrates GitHub Actions for automated builds and testing, alongside security analysis and repository protection.
+MediTrack is designed to help users organize personal medical records, including medications and appointments. The project combines Android development with automated build and testing workflows, security analysis, dependency monitoring, and repository protection using GitHub
 
 ---
 
 ## 📱 Application Overview
 
-MediTrack provides a simple interface for managing personal medical records.
+MediTrack provides a simple and intuitive interface for managing personal medical records.
 
 ![MediTrack Application Screens](app-overview.png)
 
@@ -22,7 +22,7 @@ MediTrack provides a simple interface for managing personal medical records.
 
 ## ⚙️ DevSecOps Pipeline
 
-GitHub Actions automates the application's build and testing workflow.
+Automated CI/CD workflows built with GitHub Actions streamline the build, testing, and artifact generation process.
 
 **CI Workflow**
 - Automated triggers on pushes and pull requests to `main`.
@@ -30,7 +30,7 @@ GitHub Actions automates the application's build and testing workflow.
 - Automated unit testing.
 - Android APK build.
 - APK artifact upload.
-- Build-status notifications through ntfy.
+- Build-status notifications delivered to mobile devices through ntfy.
 
 ![Android CI and Mobile Notification Flow](android-ci-overview.png)
 
@@ -38,12 +38,17 @@ GitHub Actions automates the application's build and testing workflow.
 
 ## 🔐 Security & Code Quality
 
+Security controls are integrated into the development workflow to support code analysis, dependency monitoring, and repository protection.
+
 | Tool / Control | Purpose |
 |---|---|
-| GitHub CodeQL | Automated static code analysis |
-| Dependabot | Dependency updates and vulnerability monitoring |
+| GitHub CodeQL | Static code analysis for Java/Kotlin and GitHub Actions workflows |
+| Dependabot | Automated dependency updates and vulnerability monitoring |
+| Secret Scanning | Detection and alerts for exposed credentials and secrets |
 | Branch Protection | Protecting the `main` branch |
-| Required Status Checks | Enforcing successful CI checks before merging |
+| Required Status Checks | Requiring successful CI checks before merging pull requests |
+| Repository Rules | Preventing force pushes and branch deletion |
+
 
 ![MediTrack Security Overview](security-overview.png)
 
@@ -51,10 +56,12 @@ GitHub Actions automates the application's build and testing workflow.
 
 ## 🛠️ Technology Stack
 
-- **Android:** Android SDK, Java/Kotlin, Gradle
-- **CI Automation:** GitHub Actions
+- **Android Development:** Android SDK, Java/Kotlin, Gradle
+- **CI/CD Automation:** GitHub Actions
 - **Static Analysis:** CodeQL
 - **Dependency Management:** Dependabot
+- **Repository Security:** GitHub Rulesets, Branch Protection
+- **Secret Detection:** GitHub Secret Scanning
 - **Notifications:** ntfy
 - **Version Control:** Git and GitHub
 
@@ -84,6 +91,6 @@ chmod +x gradlew
 
 ## 👩‍💻 Project
 
-A practical implementation of Android development, CI automation, and application security practices.
+MediTrack demonstrates the practical integration of Android development, CI/CD automation, and application security within a continuous development workflow.
 
-**Focus:** DevSecOps · CI Automation · Application Security · Android Development
+**Focus:** Android Development · DevSecOps · CI/CD Automation · Application Security · Repository Protection
